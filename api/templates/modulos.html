@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Módulos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #f4f4f9;
+      }
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      .btn-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .btn-container .btn {
+        padding: 15px;
+        font-size: 1.2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Selecione um Módulo</h1>
+      <div class="btn-container">
+        <a href="/estoque" class="btn btn-primary btn-block">Estoque</a>
+        <a href="/calcular" class="btn btn-success btn-block">Precificação</a>
+        <a href="/agendamentos/calendario" class="btn btn-info btn-block">
+          Agendamentos
+        </a>
+        <a
+          href="{{ url_for('listar_pacientes') }}"
+          class="btn btn-warning btn-block"
+          >Pacientes</a
+        >
+        <a
+          href="{{ url_for('listar_profissionais') }}"
+          class="btn btn-primary btn-block"
+          >Profissionais</a
+        >
+        <a
+          href="{{ url_for('listar_procedimentos') }}"
+          class="btn btn-danger btn-block"
+          >Procedimentos</a
+        >
+        <a href="{{ url_for('orcamentos') }}" class="btn btn-dark btn-block"
+          >Orçamentos</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

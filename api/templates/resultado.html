@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Resultado da Precificação</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #f4f4f9;
+      }
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      .result-box {
+        padding: 20px;
+        background: #e9ecef;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #007bff;
+      }
+      .btn-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Resultado da Precificação</h1>
+      <div class="result-box">
+        O preço final calculado é: <br />
+        <span>R$ {{ preco_final }}</span>
+      </div>
+      <div class="btn-container">
+        <a href="{{ url_for('calcular') }}" class="btn btn-primary">
+          Calcular Novamente
+        </a>
+        <a href="/" class="btn btn-secondary">Voltar ao Início</a>
+      </div>
+    </div>
+  </body>
+</html>

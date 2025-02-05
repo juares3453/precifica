@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Odontograma de {{ paciente.nome }}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #f4f4f9;
+      }
+      .container {
+        margin-top: 30px;
+      }
+      .odontograma-container {
+        text-align: right;
+        position: relative;
+      }
+      .dente {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        border: 2px solid #000;
+        cursor: pointer;
+        text-align: center;
+        font-weight: bold;
+        line-height: 28px;
+      }
+      .dente:hover {
+        background-color: rgba(0, 255, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mb-4">Odontograma de {{ paciente.nome }}</h1>
+
+      <h3 class="mt-4">Clique em um Dente para Adicionar ao Orçamento</h3>
+
+      <!-- Contêiner do Odontograma -->
+      <div class="odontograma-container">
+        <img
+          src="{{ url_for('static', filename='odontograma.png') }}"
+          alt="Odontograma"
+          class="img-fluid"
+        />
+
+        <!-- Botões interativos para os dentes -->
+        {% for dente in range(11, 49) %}
+        <div
+          class="dente"
+          id="dente{{ dente }}"
+          style="top: {{ 20 + (dente % 10) * 30 }}px; left: {{ 50 + (dente // 10) * 50 }}px;"
+          onclick="selecionarDente('{{ dente }}')"
+        >
+          {{ dente }}
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Formulário para Redirecionar ao Orçamento -->
+      <form
+        id="formOrcamento"
+        method="GET"
+        action="{{ url_for('orcamento', paciente_id=paciente.id) }}"
+      >
+        <input type="hidden" name="dente" id="denteSelecionado" />
+      </form>
+
+      <script>
+        function selecionarDente(dente) {
+          document.getElementById("denteSelecionado").value = dente;
+          document.getElementById("formOrcamento").submit();
+        }
+      </script>
+
+      <a href="{{ url_for('listar_pacientes') }}" class="btn btn-secondary mt-3"
+        >Voltar para Lista de Pacientes</a
+      >
+    </div>
+  </body>
+</html>
