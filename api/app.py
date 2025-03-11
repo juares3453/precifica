@@ -93,13 +93,10 @@ def calcular_precificacao(custo_material, custo_mao_obra, margem_lucro, outros_c
 @app.route("/")
 @login_required
 def home():
-    """
-    Redireciona para a tela de módulos ao acessar a rota principal.
-    """
-    return redirect(url_for("modulos"))
+    return redirect(url_for("calcular"))
 
 
-@app.route("/modulos")
+@app.route("/calcular")
 @login_required
 def modulos():
     """
