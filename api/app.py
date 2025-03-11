@@ -102,7 +102,7 @@ def modulos():
     """
     Tela inicial para escolher os módulos do sistema.
     """
-    return render_template("modulos.html")
+    return render_template("calcular.html")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
