@@ -13,6 +13,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
+import { Analytics } from "@vercel/analytics/react"
 
 import os
 
